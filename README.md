@@ -15,7 +15,7 @@ STEP 1: Clone this repository LIKE THIS: <strong>git clone git@github.com:binpc1
 STEP 2:  To install all dependecies, you need to execute this ligne : <strong>npm install </strong><br>
 
 STEP 3: You need to install the backend of this project developped using Spring Boot, <strong> Follow all this step described here at this link </strong>: 
-
+https://github.com/binpc17/eShopBackEnd_SpringBoot.git
 
 IF you need more assistance please email at : binpc17@gmail.com AND hello@egozola.com
 
