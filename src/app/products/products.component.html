@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading"> Product list</div>
+
+    <div class="panel-body" *ngIf="produits">
+      <!-- <form #f="ngForm" (ngSubmit)="onSearch(f.value)"> -->
+      <form>
+        <label style="margin-right: 5px">Keyword </label>
+        <input type="text" name="keyword" [(ngModel)]="keyword" (keyup)="onSearchProduct()">
+        <button type="submit" class="btn btn-primary" (click)="onSearchProduct()"><span
+          class="glyphicon glyphicon-search"> </span> Search
+        </button>
+      </form>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th> ID</th>
+          <th> DESC</th>
+          <th> PRIX</th>
+          <th> QTE</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of produits?._embedded.products">
+          <td>{{p.id}}</td>
+          <td>{{p.designation}}</td>
+          <td>{{p.price | number : '0.02'}}</td>
+          <td>{{p.quantite}}</td>
+          <td><a class="btn btn-danger" (click)="onDeleteProduct(p)"> <span class="glyphicon glyphicon-trash"></span>
+            Delete</a></td>
+          <td><a class="btn btn-success" (click)="onEditProduct(p)"> <span class="glyphicon glyphicon-edit"></span> Edit</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+
+        <ul class="nav nav-pills text-center">
+          <li class="clickable" [ngClass]="p == currentPage?'active': ''" *ngFor="let p of pages">
+            <a  (click)="onGetProducts(p)">{{p}}</a>
+          </li>
+        </ul>
+
+
+    </div>
+
+  </div>
+
+</div>
